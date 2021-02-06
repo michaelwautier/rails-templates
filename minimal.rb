@@ -14,6 +14,9 @@ end
 inject_into_file 'Gemfile', after: 'group :development, :test do' do
   <<-RUBY
 
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'webdrivers'
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
@@ -59,7 +62,7 @@ gsub_file('app/views/layouts/application.html.erb', "<%= stylesheet_link_tag 'ap
 # README
 ########################################
 markdown_file_content = <<~MARKDOWN
-  Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+  Rails app generated with [michaelwautier/rails-templates](https://github.com/michaelwautier/rails-templates)
 MARKDOWN
 file 'README.md', markdown_file_content, force: true
 
@@ -107,7 +110,7 @@ after_bundle do
 
 
     // ----------------------------------------------------
-    // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
+    // Note: ABOVE IS RAILS DEFAULT CONFIGURATION
     // WRITE YOUR OWN JS STARTING FROM HERE 👇
     // ----------------------------------------------------
 
@@ -153,7 +156,7 @@ after_bundle do
   # Git
   ########################################
   git add: '.'
-  git commit: "-m 'Initial commit with minimal template from https://github.com/lewagon/rails-templates'"
+  git commit: "-m 'Initial commit with minimal template'"
 
   # Fix puma config
   gsub_file('config/puma.rb', 'pidfile ENV.fetch("PIDFILE") { "tmp/pids/server.pid" }', '# pidfile ENV.fetch("PIDFILE") { "tmp/pids/server.pid" }')
